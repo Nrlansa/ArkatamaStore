@@ -103,7 +103,6 @@
                         </div>
                     @endforeach
                 </div>
-
             </div>
         </section>
 
@@ -112,29 +111,25 @@
                 <header class="section-header">
                     <h3 class="section-title">Produk</h3>
                 </header>
-
                 <div class="row" data-aos="fade-up" data-aos-delay="100"">
-
                 </div>
-                <div class="row" style="display: flex; flex-wrap: wrap;">
+                <div class="row">
                     @foreach ($list_produk as $produk)
                         @if ($produk->status === 'disetujui')
-                            <div class="col-3" style="flex: 1 0 25%; padding: 10px;">
-                                <div class="card" style="height: 100%; display: flex; flex-direction: column;">
-                                    <img src="{{ url('public/' . $produk->gambar) }}" class="card-img-top"
-                                        alt="..." style="flex: 1;">
-                                    <div class="card-body"
-                                        style="display: flex; flex-direction: column; justify-content: space-between;">
+                            <div class="col-3 mb-2">
+                                <div class="card " style="height: 100%; display: flex; flex-direction: column;">
+                                    <img src="{{ url('public/' . $produk->gambar) }}" class="card-img-top" alt="...">
+                                    <div class="card-body" style="display: flex; flex-direction: column; justify-content: space-between;">
                                         <h6 class="card-title">{{ $produk->nama }}</h6>
                                         <p class="card-text">{{ $produk->formatted_price }}</p>
-                                        <a href="{{ url('/landing', $produk->id) }}"
-                                            class="btn btn-primary mt-auto">Detail Produk</a>
+                                        <a href="{{ url('/landing', $produk->id) }}" class="btn btn-primary mt-auto">Detail Produk</a>
                                     </div>
                                 </div>
                             </div>
                         @endif
                     @endforeach
                 </div>
+
             </div>
         </section>
         <!-- ======= Footer ======= -->

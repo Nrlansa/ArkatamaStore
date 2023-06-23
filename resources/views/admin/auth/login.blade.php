@@ -28,14 +28,13 @@
         <div class="card">
             <div class="card-body login-card-body">
                 <p class="login-box-msg">Silahkan Login menggunakan akun mu!</p>
-                @if (count($errors) > 0)
-                    @foreach ($errors->all() as $error)
-                        <div class="alert alert-danger" role="alert">
-                            {{ $error }}
-                        </div>
-                    @endforeach
+                @if (Session::has('danger'))
+                    <div class="alert alert-danger" role="alert">
+                        {{ Session('danger') }}
+                        <a href="" class="float-end close" data-dismiss="alert" aria-lable="close"
+                            style="text-decoration: none;">&times;</a>
+                    </div>
                 @endif
-
                 @if (Session::has('success'))
                     <div class="alert alert-success" role="alert">
                         {{ Session('success') }}
