@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Kategori;
+use App\Models\Order;
+use App\Models\Member;
 use App\Models\Produk;
 use App\Models\Slider;
+use App\Models\Kategori;
 use Illuminate\Http\Request;
 
 class LandingController extends Controller
@@ -13,7 +15,8 @@ class LandingController extends Controller
         $data['list_slider'] = Slider::all();
         $data['list_kategori'] = Kategori::all();
         $data['list_produk'] = Produk::all();
-        return view('landing.home',$data);
+        
+        return view('landing.produk.produk',$data);
     }
     
     public function show($id){
@@ -21,5 +24,24 @@ class LandingController extends Controller
         $data['kategori'] = Kategori::all();
         return view('landing.showproduk', $data);
     }
-
+    public function listproduk()
+    {
+        $data['order']= Order::all();
+        $data['member'] = Member::all();
+        $data['list_slider'] = Slider::all();
+        $data['list_kategori'] = Kategori::all();
+        $data['list_produk'] = Produk::all();
+        return view('landing.produk.allproduk', $data);
+    }
+    public function profil($id)
+    {
+        $data['member'] = Member::findOrFail($id);
+        return view('landing.profil', $data);
+    }
+    public function detail($id)
+    {
+        $data['produk'] = Produk::findOrFail($id);
+        $data['list_kategori'] = Kategori::all();
+        return view('landing.produk.tentangproduk', $data);
+    }
 }

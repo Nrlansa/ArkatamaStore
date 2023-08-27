@@ -31,4 +31,9 @@ class KategoriController extends Controller
 
         return redirect('/produk/kategori')->with('success', 'Data berhasil diedit');
     }
+    public function destroy(Kategori $kategori)
+    {
+        $kategori->delete();
+        return redirect('/produk/kategori')->with('success', 'Data berhasil dihapus');
+    }
 }

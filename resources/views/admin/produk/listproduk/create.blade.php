@@ -68,6 +68,15 @@
                 </div>
                 <div class="col-md-6 col-sm-6">
                     <div class="form-group">
+                        <label for="" class="control-label">Stok</label>
+                        <input type="text" name="stok" id="" class="form-control @error('stok') is-invalid @enderror">
+                         @error('stok')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-6">
+                    <div class="form-group">
                         <label for="" class="control-label">Gambar Produk</label>
                         <input type="file" accept=".jpg" name="gambar" id="" class="form-control @error('gambar') is-invalid @enderror">
                         @error('gambar')

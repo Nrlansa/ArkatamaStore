@@ -25,6 +25,7 @@ class SprodukController extends Controller
         $data['list_kategori'] = Kategori::all();
         return view('staff.produk.create', $data);
     }
+    
     public function store(Request $request)
     {
         $messages = [
@@ -64,13 +65,13 @@ class SprodukController extends Controller
         $produk->price = $request->input('price');
         $produk->created_by = $request->input('created_by');
         $produk->status = $request->input('status');
+        $produk->stok = $request->input('stok');
         $produk->gambar = 'gambar/' . $namaGambar;
         // @dd($produk)
         $produk->save();
 
         return redirect('/staffproduk')->with('success', 'Data berhasil ditambahkan');
     }
-
 
     public function update(Request $request, $id)
     {

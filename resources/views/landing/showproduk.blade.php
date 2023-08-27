@@ -50,19 +50,18 @@
                                     {{ $produk->formatted_price }}
                                 </h2>
                                 <h4 class="mt-0">
-                                    <small></small>
+                                    <small>Stok barang : {{ $produk->stok }}</small>
                                 </h4>
                             </div>
 
                             <div class="mt-4">
-                                <div class="btn btn-primary btn-lg btn-flat">
+                                <div class="btn btn-primary btn-lg btn-flat" data-produk-id="{{ $produk->id }}" id="add-to-cart-btn">
                                     <i class="fas fa-cart-plus fa-lg mr-2"></i>
-                                    Add to Cart
+                                   <a href="{{ url('login') }}" style="color:black">Add to Cart</a> 
                                 </div>
-
                                 <div class="btn btn-default btn-lg btn-flat">
                                     <i class="fas fa-heart fa-lg mr-2"></i>
-                                    Add to Wishlist
+                                   <a href="{{ url('login') }}" style="color:black">Add to Wishlist</a>
                                 </div>
                             </div>
                         </div>

@@ -48,6 +48,7 @@ class ProdukController extends Controller
             'price' => 'required|numeric',
             'berat' => 'required|numeric',
             'gambar' => 'required|image|mimes:jpg|max:2048',
+            'stok' => 'required',
         ], $messages);
 
         $gambar = $request->file('gambar');
@@ -64,6 +65,7 @@ class ProdukController extends Controller
         $produk->price = $request->input('price');
         $produk->created_by = $request->input('created_by');
         $produk->status = $request->input('status');
+        $produk->stok = $request->input('stok');
         $produk->gambar = 'gambar/' . $namaGambar;
         // @dd($produk)
         $produk->save();
@@ -80,6 +82,7 @@ class ProdukController extends Controller
             'deskripsi' => 'required',
             'price' => 'required|numeric',
             'berat' => 'required|numeric',
+            'stok' => 'required|numeric',
             'gambar' => 'nullable|max:2048',
         ], [
             'nama.required' => 'Nama Produk harus diisi.',
@@ -88,6 +91,8 @@ class ProdukController extends Controller
             'price.required' => 'Harga harus diisi.',
             'price.numeric' => 'Harga harus berupa angka.',
             'berat.required' => 'Berat harus diisi.',
+            'stok.required' => 'Stok harus diisi.',
+            'stok.numeric' => 'Stok harus berupa angka.',
             'berat.numeric' => 'Berat harus berupa angka.',
             'gambar.max' => 'Ukuran gambar tidak boleh lebih dari 2 MB.',
         ]);
@@ -100,6 +105,7 @@ class ProdukController extends Controller
         $produk->price = $request->input('price');
         $produk->created_by = $request->input('created_by');
         $produk->status = $request->input('status');
+        $produk->stok = $request->input('stok');
 
         if ($request->hasFile('gambar')) {
             if ($produk->gambar) {
@@ -116,7 +122,7 @@ class ProdukController extends Controller
         }
         $produk->save();
 
-        return redirect('/produk')->with('success', 'Data berhasil diperbarui');
+        return redirect('/produk')->with('success', 'Data berhasil diedit');
     }
 
     public function edit(Produk $produk)

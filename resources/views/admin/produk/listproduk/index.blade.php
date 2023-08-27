@@ -45,6 +45,7 @@
                         <th>Deskripsi Produk</th>
                         <th>Harga</th>
                         <th>Berat</th>
+                        <th>Stok</th>
                         <th>Status</th>
                         <th>dibuat oleh</th>
                     </tr>
@@ -77,6 +78,7 @@
                                         {{ $produk->berat }} gram 
                                     @endif
                             </td>
+                            <td>{{ $produk->stok }}</td>
                             <td style="color:
                                 @if ($produk->status === 'disetujui')
                                     rgb(1, 220, 1)
@@ -87,6 +89,7 @@
                                 @endif">
                                 <strong>{{ $produk->status }}</strong>
                             </td>
+                            
                             <td>{{ $produk->createdBy->nama }}</td>
                         </tr>
                     @endforeach

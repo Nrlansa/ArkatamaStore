@@ -88,6 +88,24 @@
                       </a>
                   </li>
                   <li class="nav-item">
+                      <a href="{{ url('/verifikasi') }}" class="nav-link">
+                        <i class="nav-icon fas fa-th-list"></i>
+
+                          <p>
+                              Verifikasi Pembayaran
+                          </p>
+                      </a>
+                  </li>
+                  <li class="nav-item">
+                      <a href="{{ url('/kirim') }}" class="nav-link">
+                        <i class="nav-icon fas fa-th-list"></i>
+
+                          <p>
+                              Atur pengiriman
+                          </p>
+                      </a>
+                  </li>
+                  <li class="nav-item">
                       <a href="{{ url('/logout') }}" class="nav-link">
                         <i class="nav-icon fas fa-power-off"></i>
 

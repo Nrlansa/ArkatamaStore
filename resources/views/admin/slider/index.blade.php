@@ -52,13 +52,10 @@
                                 <td>
                                     <div class="btn-group">
                                         <a href="{{ url('/slider', $slider->id) }}" class="btn btn-primary"><i class="fas fa-info"></i></a>
-                                        @if ($slider->is_active === 'menunggu')
                                              <a href="{{ url('/slider', $slider->id) }}/edit" class="btn btn-warning"
                                             data-bs-toggle="modal" data-bs-target="#editModal{{ $slider->id }}">
                                             <i class="fas fa-edit"></i>
                                              </a>
-                                        @endif
-
                                         @if ($slider->is_active === 'tidak' || $slider->is_active === 'menunggu')
                                             <form action="{{ url('/slider', $slider->id) }}" method="POST"
                                                 onsubmit="return confirm('Apakah Anda yakin ingin menghapus data ini?')">
@@ -109,6 +106,20 @@
                                                     </div>
                                                     <input type="hidden" name="is_active" value="menunggu">
                                                 </div>
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <div class="form-group">
+                                                            <label for="" class="control-label">Promo</label>
+                                                            <input type="text" name="promo" id="" class="form-control" value="{{ $slider->promo }}">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="form-group">
+                                                            <label for="" class="control-label">Title</label>
+                                                            <input type="text"   name="title" id="" class="form-control" value="{{ $slider->title }}">
+                                                        </div>
+                                                    </div>
+                                                </div>
                                                 <div class="modal-footer">
                                                     <button class="btn btn-primary float-md-right float-right"
                                                         onclick="return confirm('apakah anda yakin ingin mengedit data ini?')">
@@ -152,6 +163,20 @@
                                 </div>
                             </div>
                             <input type="hidden" name="is_active" value="menunggu">
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label for="" class="control-label">Promo</label>
+                                    <input type="text" name="promo" id="" class="form-control" required>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label for="" class="control-label">Title</label>
+                                    <input type="text"   name="title" id="" class="form-control" required>
+                                </div>
+                            </div>
                         </div>
                         <div class="modal-footer">
                             <button class="btn btn-primary float-md-right float-right"

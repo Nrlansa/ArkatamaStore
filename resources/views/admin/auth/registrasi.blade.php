@@ -22,13 +22,12 @@
       <a href="{{ url('/') }}" class="h3"><b>Arkatama</b>Store</a>
     </div>
     <div class="card-body">
-      <p class="login-box-msg">Register a new membership</p>
+      <p class="login-box-msg">Daftar untuk pengguna baru</p>
 
       <form action="{{ url('/register') }}" method="post">
         @csrf
-        <input type="hidden" name="role" value="user">
         <div class="input-group mb-3">
-          <input type="text" class="form-control" name="nama" placeholder="Full name">
+          <input type="text" class="form-control" name="nama" placeholder="Nama lengkap" required>
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-user"></span>
@@ -36,7 +35,7 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="text" class="form-control" name="username" placeholder="Username">
+          <input type="text" class="form-control" name="username" placeholder="Username" required>
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-user"></span>
@@ -44,7 +43,7 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="text" class="form-control" name="nomorhp" placeholder="Nomor WhatsApp">
+          <input type="text" class="form-control" name="no_hp" placeholder="Nomor WhatsApp" required>
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
@@ -52,7 +51,15 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="email" class="form-control" name="email" placeholder="Email">
+          <textarea name="alamat" rows="1" class="form-control" placeholder="Alamat" required></textarea>
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-map-marker-alt"></span>
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          <input type="email" class="form-control" name="email" placeholder="Email" required>
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
@@ -60,7 +67,7 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="password" nama="password" class="form-control" placeholder="Password">
+          <input type="password" name="password" class="form-control" placeholder="Password" required>
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
@@ -68,7 +75,7 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="password" class="form-control" placeholder="Retype password">
+          <input type="password" class="form-control" placeholder="ulangi kembali password" required>
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
@@ -81,15 +88,14 @@
           </div>
           <!-- /.col -->
           <div class="col-4">
-            <button type="submit" class="btn btn-primary btn-block">Register</button>
+            <button type="submit" class="btn btn-primary btn-block">Daftar</button>
           </div>
           <!-- /.col -->
         </div>
       </form>
-
-      
-
-      <a href="{{ url('/login') }}" class="text-center">I already have a membership</a>
+ <p class="mt-2 text-center">
+    <a href="{{ url('/login') }}" class="text-center">Saya telah mendaftar</a>
+</p>
     </div>
     <!-- /.form-box -->
   </div><!-- /.card -->

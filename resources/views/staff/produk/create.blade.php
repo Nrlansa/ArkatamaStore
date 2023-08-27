@@ -59,6 +59,15 @@
                 </div>
                 <div class="col-md-6 col-sm-6">
                     <div class="form-group">
+                        <label for="" class="control-label">Stok</label>
+                        <input type="text" name="stok" id="" placeholder="Masukkan angka dalam gram" class="form-control @error('stok') is-invalid @enderror">
+                        @error('stok')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-6">
+                    <div class="form-group">
                         <label for="" class="control-label">Berat</label>
                         <input type="text" name="berat" id="" placeholder="Masukkan berat dengan gram tanpa satuan" class="form-control @error('berat') is-invalid @enderror">
                          @error('berat')

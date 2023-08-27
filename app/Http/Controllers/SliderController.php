@@ -30,6 +30,8 @@ class SliderController extends Controller
 
         $slider = new Slider;
         $slider->nama = $request->input('nama');
+        $slider->promo = $request->input('promo');
+        $slider->title = $request->input('title');
         $slider->is_active = $request->input('is_active');
         $slider->banner = 'slider/' . $namaGambar;
 
@@ -53,6 +55,8 @@ class SliderController extends Controller
 
         $slider->nama = $request->input('nama');
         $slider->is_active = $request->input('is_active');
+        $slider->promo = $request->input('promo');
+        $slider->title = $request->input('title');
         if ($request->hasFile('banner')) {
             $banner = $request->file('banner');
             $destinationPath = public_path('slider');
@@ -72,7 +76,7 @@ class SliderController extends Controller
         }
         $slider->save();
 
-        return redirect('/slider')->with('success', 'Data berhasil ditambahkan');
+        return redirect('/slider')->with('success', 'Data berhasil diedit');
     }
 
     public function updateStatus($id, $is_active)
